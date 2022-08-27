@@ -1,0 +1,49 @@
+header {
+    height: fit-content;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: 0.5s;
+
+}
+.nav-colored {
+    
+    background-color: rgb(66, 16, 16);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+.nav-transparent {
+    
+    background-color: rgba(250, 235, 215, 0);
+}
+
+ul {
+    margin:0;
+    display:block;
+    z-index:100;
+}
+
+ul li {
+    display:inline-block;
+    padding: 10px;
+    font: normal 18px arial ;
+    color: rgb(221, 168, 120);
+    margin: 5px;
+}
+ ul li:hover {
+    border-radius: 5px;
+    color: red;
+    background-color: beige;
+    cursor:pointer;
+    transition: 0.5s;
+ }
+
+
+ .banner {
+    height: 100vh;
+    background-image: url('https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+ }

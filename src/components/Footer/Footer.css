@@ -1,0 +1,10 @@
+footer {
+    height: 10vh;
+    background-color: rgb(66, 16, 16);
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 200px;;
+}
