@@ -1,10 +1,17 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 
 
-export const getProducts = createAsyncThunk('products/getProducts', async () => {
-    let products = await fetch("https://dummyjson.com/products");
-    products = await products.json();
-    return products.products;
+export const getProducts = createAsyncThunk('products/getProducts', async (term = "") => {
+    if (term === ""){
+        let products = await fetch("https://dummyjson.com/products");
+        products = await products.json();
+        return products.products;
+    }else {
+        let products = await fetch(`https://dummyjson.com/products/search?q=${term}`);
+        products = await products.json();
+        return products.products;
+    }
+
 });
 
 const products = createSlice({
@@ -12,12 +19,12 @@ const products = createSlice({
     initialState: {
         products: [],
         status: 'pending',
-        filteredProducts: []
+        // filteredProducts: []
     },
     reducers: {
-        setFilteredProducts: (state, action) => {
-            state.filteredProducts = action.payload;
-        }
+        // setFilteredProducts: (state, action) => {
+        //     state.filteredProducts = action.payload;
+        // }
     },
     extraReducers: {
         [getProducts.fulfilled]: (state, {payload}) => {
@@ -42,9 +49,9 @@ export const selectProducts = state => {
 export const selectProductsStatus = state => {
     return state.products.status;
 }
-export const selectFilteredProducts = state => {
-    return state.products.filteredProducts;
-}
+// export const selectFilteredProducts = state => {
+//     return state.products.filteredProducts;
+// }
 export const {setFilteredProducts} = products.actions;
 export default products.reducer;
 

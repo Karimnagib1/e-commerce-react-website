@@ -17,7 +17,7 @@ const Header = () => {
         };  
     })
     return (
-        <div>
+        <div className= "header-container">
             <header id = "mynav">
                 <nav>
                     <ul>
