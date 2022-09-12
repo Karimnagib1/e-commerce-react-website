@@ -9,6 +9,7 @@ import {
   clearProducts
 } from "./ProductsSlice";
 import ProductCard from '../../components/ProductCard/ProductCard';
+import Loading from '../../components/Loading/Loading';
 import "./Products.css";
 import { useParams } from "react-router-dom";
 
@@ -23,7 +24,7 @@ const Products = () => {
   const handleSearchTerm = (e) => {
     setSearchTerm(e.target.value);
   };
-
+  // To get Categories 
   useEffect(() => {
     if (params.category) {
       dispatch(getProductsByCategory(params.category));
@@ -59,12 +60,7 @@ const Products = () => {
         />
         <h2 className="section-title">products</h2>
         <p>Products in the cart: {cartLength}</p>
-        <div className="b">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <Loading />
       </div>
     );
   } else if (status === "fulfilled") {
@@ -87,7 +83,6 @@ const Products = () => {
                 <ProductCard product = {product} />
               );
             })}
-            {/* *ngFor= "let product of filteredProducts" */}
           </div>
         </div>
       </div>
