@@ -1,0 +1,32 @@
+.category-card {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 300px;
+  height: 200px;
+  position: relative;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.category-card:hover {
+    width: 330px;
+    height: 220px; 
+}
+.category-card::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.29);
+}
+.category-card h2 {
+  color: white;
+  font-family: arial;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  z-index: 2;
+}

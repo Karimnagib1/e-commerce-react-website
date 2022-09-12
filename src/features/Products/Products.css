@@ -1,6 +1,5 @@
 .products {
     text-align: center;
-    min-height: 1000px;
 }
 .search {
     width: 300px;
@@ -15,10 +14,7 @@
     border: 1px solid #7f2011;
 }
 
-.section-title {
-    font-size: 2.5rem;
-    font-family: Helvetica;
-}
+
 .cards-wrapper {
     width: 100%;
     display: flex;

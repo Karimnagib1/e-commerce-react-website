@@ -1,17 +1,33 @@
-import React from 'react';
-import Header from '../components/Header/Header';
-import Products from '../features/Products/Products';
-import Footer from '../components/Footer/Footer';
-import './App.css';
+import React from "react";
+import Header from "../components/Header/Header";
+import Products from "../features/Products/Products";
+import Footer from "../components/Footer/Footer";
+import Categories from "../components/Categories/Categories";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+} from "react-router-dom";
+import "./App.css";
 const App = () => {
   return (
-    <div class= "app">
-      <Header/>
-      <main>
-        <Products />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="app">
+        <Header />
+
+        <main>
+          {/* <Products /> */}
+            <Routes>
+              <Route path="/" element= {<Categories />} />
+              <Route path= "/products/:category" element = {<Products />} />
+            </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 
