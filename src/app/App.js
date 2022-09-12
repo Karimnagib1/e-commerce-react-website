@@ -7,9 +7,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
-  useRouteMatch,
-  useParams,
 } from "react-router-dom";
 import "./App.css";
 const App = () => {
@@ -22,6 +19,7 @@ const App = () => {
           {/* <Products /> */}
             <Routes>
               <Route path="/" element= {<Categories />} />
+              <Route path = "/products" element = {<Products />}/>
               <Route path= "/products/:category" element = {<Products />} />
             </Routes>
         </main>

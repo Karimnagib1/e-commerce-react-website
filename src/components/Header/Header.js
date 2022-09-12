@@ -1,4 +1,5 @@
 import { React, useEffect } from "react";
+import SearchBox from "../SearchBox/SearchBox";
 import "./Header.css";
 
 import { Link } from "react-router-dom";
@@ -34,10 +35,11 @@ const Header = () => {
             <li>About</li>
           </ul>
         </nav>
-        <div className="search-container">
+        {/* <div className="search-container">
           <input type="text" placeholder="search" />
           <div className="search-button"></div>
-        </div>
+        </div> */}
+        <SearchBox />
         <div className="authetication-container">
           <div className="authentication">Login</div>
           <div className="authentication signup">Sign Up</div>
