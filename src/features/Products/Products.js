@@ -6,10 +6,10 @@ import {
   getProductsByCategory,
   selectProducts,
   selectProductsStatus,
-  clearProducts
+  clearProducts,
 } from "./ProductsSlice";
-import ProductCard from '../../components/ProductCard/ProductCard';
-import Loading from '../../components/Loading/Loading';
+import ProductsList from "../../components/ProductsList/ProductsList";
+import Loading from "../../components/Loading/Loading";
 import "./Products.css";
 import { useParams } from "react-router-dom";
 
@@ -24,7 +24,7 @@ const Products = () => {
   const handleSearchTerm = (e) => {
     setSearchTerm(e.target.value);
   };
-  // To get Categories 
+  // To get Categories
   useEffect(() => {
     if (params.category) {
       dispatch(getProductsByCategory(params.category));
@@ -38,7 +38,7 @@ const Products = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      if (searchTerm){
+      if (searchTerm) {
         dispatch(getProducts(searchTerm));
       }
     }, 2000);
@@ -47,49 +47,25 @@ const Products = () => {
     };
   }, [searchTerm, dispatch]);
 
-  if (status === "pending") {
-    return (
-      <div className="products">
-        <input
-          type="text"
-          onChange={handleSearchTerm}
-          className="search"
-          id="search"
-          value={searchTerm}
-          placeholder="Search Products"
-        />
-        <h2 className="section-title">products</h2>
-        <p>Products in the cart: {cartLength}</p>
-        <Loading />
-      </div>
-    );
-  } else if (status === "fulfilled") {
-    return (
-      <div>
-        <div className="products">
-          <input
-            type="text"
-            onChange={handleSearchTerm}
-            className="search"
-            id="search"
-            value={searchTerm}
-            placeholder="Search Products"
-          />
-          <h2 className="section-title">products</h2>
-          <p>Products in the cart: {cartLength}</p>
-          <div className="cards-wrapper">
-            {products.map((product) => {
-              return (
-                <ProductCard product = {product} />
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    );
-  } else {
-    return <div className="error">Something went wrong!</div>;
-  }
+  return (
+    <div className="products">
+      <input
+        type="text"
+        onChange={handleSearchTerm}
+        className="search"
+        id="search"
+        value={searchTerm}
+        placeholder="Search Products"
+      />
+      <h2 className="section-title">products</h2>
+      <p>Products in the cart: {cartLength}</p>
+      {status === "pending" && <Loading />}
+      {status === "fulfilled" && <ProductsList products={products} />}
+      {status === "rejected" && (
+        <div className="error">Something went wrong!</div>
+      )}
+    </div>
+  );
 };
 
 export default Products;
