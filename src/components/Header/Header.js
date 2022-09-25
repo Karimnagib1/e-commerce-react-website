@@ -2,6 +2,7 @@ import { React, useEffect } from "react";
 import SearchBox from "../SearchBox/SearchBox";
 import { useSelector, useDispatch } from "react-redux";
 import { selectIsAuthenticated, logout } from "../../features/Login/UserSlice";
+import axios from "axios";
 import "./Header.css";
 
 import { Link } from "react-router-dom";
@@ -12,15 +13,15 @@ const Header = () => {
   useEffect(() => {
     //this didn't work. Try another thing.
     var myNav = document.getElementById("mynav");
-    var search = document.getElementsByClassName("search-container")[0];
+    // var search = document.getElementsByClassName("search-container")[0];
 
     window.onscroll = function () {
       if (window.scrollY > 200) {
         myNav.classList.add("nav-colored");
         myNav.classList.remove("nav-transparent");
-        search.style.display = "flex";
+        // search.style.display = "flex";
       } else {
-        search.style.display = "none";
+        // search.style.display = "none";
         myNav.classList.add("nav-transparent");
         myNav.classList.remove("nav-colored");
       }
@@ -29,6 +30,8 @@ const Header = () => {
  
   const handleLogout = (e) => {
     dispatch(logout());
+    delete axios.defaults.headers.common["Authorization"];
+    
   }
   return (
     <div className="header-container">
@@ -65,7 +68,6 @@ const Header = () => {
           )}
         </div>
       </header>
-      <div className="banner"></div>
     </div>
   );
 };

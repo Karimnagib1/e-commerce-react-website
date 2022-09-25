@@ -50,7 +50,7 @@ ul li, .authentication {
     transition: 0.5s;
  }
 .search-container {
-    display: none;
+    display: block;
     align-items: center;
     transition: 0.5s;
 }
@@ -59,14 +59,7 @@ ul li, .authentication {
     padding: 5px 10px;
 }
 
-.banner {
-    height: 100vh;
-    background-image: url('https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/newscms/2019_33/2203981/171026-better-coffee-boost-se-329p.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: 20px;
- }
+
 
 .authetication-container {
     margin-right: 20px;

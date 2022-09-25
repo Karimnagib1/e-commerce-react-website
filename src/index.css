@@ -19,3 +19,11 @@ code {
   font-family: Helvetica;
   text-align: center;
 }
+
+.content-wrap {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}

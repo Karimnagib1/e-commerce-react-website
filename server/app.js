@@ -28,11 +28,11 @@ const db = require("./config/keys").mongoURI;
 app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
+
+
 // Routes
 app.use("/api/users", users);
 app.get('/add-product', passport.authenticate('jwt', { session: false }), (req, res, next)=> {
-  console.log('got here')
-  console.log(req.user);  
   if (req.user) {res.json(req.user)} else {res.json('fail')}
 })
 // Connect to MongoDB
