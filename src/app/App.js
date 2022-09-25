@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../components/Header/Header";
 import Products from "../features/Products/Products";
+import Login from "../features/Login/Login";
+import Signup from "../features/Signup/Signup";
 import Footer from "../components/Footer/Footer";
 import Categories from "../components/Categories/Categories";
 import {
@@ -21,6 +23,9 @@ const App = () => {
               <Route path="/" element= {<Categories />} />
               <Route path = "/products" element = {<Products />}/>
               <Route path= "/products/:category" element = {<Products />} />
+              <Route path= "/login" exact element = {<Login />} />
+              <Route path= "/signup" exact element = {<Signup />} />
+
             </Routes>
         </main>
         <Footer />

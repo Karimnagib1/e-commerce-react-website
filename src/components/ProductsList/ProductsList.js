@@ -3,9 +3,9 @@ import ProductCard from "../ProductCard/ProductCard";
 import "./ProductsList.css";
 const ProductsList = ({products}) => {
   return (
-    <div class="cards-wrapper">
+    <div className="cards-wrapper">
       {products.map((product) => {
-        return <ProductCard product={product} />;
+        return <ProductCard product={product} key = {product.id}/>;
       })}
     </div>
   );

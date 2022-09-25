@@ -89,8 +89,8 @@ const Categories = () => {
     },
   ];
   return (
-    <div class = "categories">
-      <h1 class = 'section-title'>Categories</h1>
+    <div className = "categories">
+      <h1 className = 'section-title'>Categories</h1>
       <div className = "categories-list">
 
           {categories.map(cat => {

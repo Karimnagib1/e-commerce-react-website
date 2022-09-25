@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
       <p className="description">{product.description}</p>
       <div className="card_actions">
         <button className="btn">Add to Cart</button>{" "}
-        <button className="btn">Buy </button>
+        <button className="btn">Buy Now</button>
       </div>
     </div>
   );

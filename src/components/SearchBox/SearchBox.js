@@ -1,8 +1,10 @@
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../../features/Products/ProductsSlice";
-import {useNavigate} from 'react-router-dom';
- 
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch} from '@fortawesome/free-solid-svg-icons';
+
 import "./SearchBox.css";
 
 const SearchBox = () => {
@@ -12,22 +14,15 @@ const SearchBox = () => {
     setSearchTerm(e.target.value);
   };
   const navigate = useNavigate();
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (searchTerm) {
-        navigate('/products', {replace: true});
-        dispatch(getProducts(searchTerm));
-      }else {
-        navigate('/', {replace: true});
-      }
-    }, 2000);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [searchTerm, dispatch, navigate]);
-  
+
+  const search = (e) => {
+    e.preventDefault();
+    navigate("/products", { replace: true });
+    dispatch(getProducts(searchTerm));
+  };
+
   return (
-    <div>
+    <form onSubmit={search} className="search-container">
       <input
         type="text"
         onChange={handleSearchTerm}
@@ -36,8 +31,12 @@ const SearchBox = () => {
         value={searchTerm}
         placeholder="Search Products"
       />
-    </div>
+      <button className="search-btn" type="submit">
+        <FontAwesomeIcon icon = {faSearch} />
+      </button>
+    </form>
   );
 };
 
 export default SearchBox;
+// fix getting a category problem
